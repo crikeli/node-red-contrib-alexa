@@ -71,13 +71,10 @@ module.exports = function(RED) {
         res.status(403).json({ status: 'failure', reason: er });
       }
       var er;
-<<<<<<< HEAD
+      
       // mark the request body as already having been parsed so it's ignored by
       // other body parser middlewares
-=======
-      // mark the request body as already having been parsed so it's ignored by
-      // other body parser middlewares
->>>>>>> 0e2936a4306951ce560f0d6112ce9f26fc3977f9
+
       req._body = true;
       req.rawBody = '';
       req.on('data', function(data) {
