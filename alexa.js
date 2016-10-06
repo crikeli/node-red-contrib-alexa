@@ -71,8 +71,13 @@ module.exports = function(RED) {
         res.status(403).json({ status: 'failure', reason: er });
       }
       var er;
+<<<<<<< HEAD
       // mark the request body as already having been parsed so it's ignored by
       // other body parser middlewares
+=======
+      // mark the request body as already having been parsed so it's ignored by
+      // other body parser middlewares
+>>>>>>> 0e2936a4306951ce560f0d6112ce9f26fc3977f9
       req._body = true;
       req.rawBody = '';
       req.on('data', function(data) {
@@ -116,6 +121,7 @@ module.exports = function(RED) {
             for (var i =0;i<skillConfig.intents.length;i++){
                 var intent = skillConfig.intents[i];
                 skill.intent(intent.name, intent.name.slots,
+
                   function(request,response, state) {
                     var msgid = RED.util.generateId();
                     for(var n=0;n<skills[skillConfig.id].intents.length;n++){
@@ -356,6 +362,7 @@ module.exports = function(RED) {
         for (var i =0;i<intents.length;i++){
             var intent = intents[i];
             skill.intent(intent.name, intent.name.slots);
+
         }
 
         var response = {};
@@ -363,4 +370,5 @@ module.exports = function(RED) {
         response.utterances = skill.utterances()
         res.json(response);
     });
+
 }
